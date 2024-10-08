@@ -1,0 +1,90 @@
+.logo-container {
+    width: 300px;
+    min-width: 300px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgba(249, 243, 230, 0.9);
+    border-radius: 15px 0 0 15px;
+    background-image: url('subtle-pattern.png');
+    background-repeat: repeat;
+    background-size: 100px 100px;
+    overflow-y: auto;
+}
+
+/* Include other styles related to logo-container here */
+
+.restaurant-info {
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.restaurant-name {
+    font-size: 2.5rem;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.restaurant-tagline {
+    font-style: italic;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.welcome-message {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.restaurant-info h3 {
+    font-size: 1.8rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: rgb(143, 57, 36);
+}
+
+.restaurant-info p {
+    margin: 5px 0;
+    font-size: 1.2rem;
+}
+
+.bottom-content {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.separator-line {
+    width: 80%;
+    border-bottom: 2px solid rgb(143, 57, 36);
+    margin: 5px 0;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.social-icon {
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) saturate(100%) invert(24%) sepia(56%) saturate(638%) hue-rotate(333deg) brightness(92%) contrast(90%);
+    transition: transform 0.2s ease;
+}
+
+.social-icon:hover .social-img {
+    transform: scale(1.1);
+}

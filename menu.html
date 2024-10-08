@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Dutch Delight</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', Arial, sans-serif;
+            height: 100%;
+        }
+
+        body {
+            background-image: url('restaurant-photo2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 1rem 2%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 3rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #40E0D0;
+        }
+
+        .menu-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.5s ease;
+        }
+        #book-container {
+            width: 800px;
+            height: 600px;
+            position: relative;
+            perspective: 1500px;
+        }
+
+        .menu-book {
+            width: 800px;
+            height: 600px;
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            perspective: 1500px;
+        }
+
+        .page {
+            width: 400px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform-origin: left center;
+            transition: transform 0.5s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0); /* Adjust the last value (0.7) to change transparency */
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .page-content, .page-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            backface-visibility: hidden;
+            background-color: rgba(0, 0, 0); /* Adjust the last value (0.7) to change transparency */
+        }
+
+        .page-back {
+            transform: rotateY(180deg);
+        }
+
+        .flipped {
+            transform: rotateY(-180deg);
+        }
+
+        /* Add styles for page stacking */
+        #page1 { z-index: 4; }
+        #page2 { z-index: 3; }
+        #page3 { z-index: 2; }
+        #page4 { z-index: 1; }
+
+        h2 {
+            color: #40E0D0;
+            text-align: center;
+        }
+
+        .menu-item {
+            margin-bottom: 20px;
+        }
+
+        .menu-item-name {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .menu-item-description {
+            font-style: italic;
+            color: #ccc;
+        }
+
+        .menu-item-price {
+            float: right;
+            font-weight: bold;
+        }
+
+        .turn-page {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: #40E0D0;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">THE RITZ</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+<div id="book-container"></div>
+
+<script src="InteractiveMenuBook.js"></script>
+<script>
+    (function() {
+        const content = [
+            { title: "", items: [] }, // Front Cover
+            { title: "Appetizers", items: [
+                { name: "Bruschetta", price: "$8" },
+                { name: "Calamari Fritti", price: "$12" },
+                { name: "Caprese Salad", price: "$10" },
+                { name: "Escargots à la Bourguignonne", price: "$15" }
+            ]},
+            { title: "Soups & Salads", items: [
+                { name: "French Onion Soup", price: "$9" },
+                { name: "Lobster Bisque", price: "$14" },
+                { name: "Caesar Salad", price: "$11" },
+                { name: "Niçoise Salad", price: "$13" }
+            ]},
+            { title: "Main Courses", items: [
+                { name: "Filet Mignon", price: "$35" },
+                { name: "Coq au Vin", price: "$28" },
+                { name: "Lobster Thermidor", price: "$42" },
+                { name: "Beef Wellington", price: "$38" }
+            ]},
+            { title: "Seafood Specialties", items: [
+                { name: "Grilled Salmon", price: "$26" },
+                { name: "Seared Scallops", price: "$30" },
+                { name: "Bouillabaisse", price: "$34" },
+                { name: "Tuna Tartare", price: "$24" }
+            ]},
+            { title: "Vegetarian Delights", items: [
+                { name: "Ratatouille", price: "$22" },
+                { name: "Mushroom Risotto", price: "$20" },
+                { name: "Eggplant Parmesan", price: "$18" },
+                { name: "Vegetable Tian", price: "$19" }
+            ]},
+            { title: "Desserts", items: [
+                { name: "Crème Brûlée", price: "$10" },
+                { name: "Chocolate Soufflé", price: "$12" },
+                { name: "Tarte Tatin", price: "$9" },
+                { name: "Profiteroles", price: "$11" }
+            ]},
+            { title: "", items: [] } // Back Cover
+        ];
+
+        const menuBook = new InteractiveMenuBook('book-container', content);
+        menuBook.init();
+    })();
+</script>
+</html>

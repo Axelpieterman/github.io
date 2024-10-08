@@ -1,0 +1,337 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Bahiana', cursive;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-image: url('restaurant-photo2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(143, 57, 36, 0.5);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 3rem; /* Increased size as Bahiana is a bit smaller */
+    font-weight: 400; /* Bahiana only comes in regular weight */
+    color: rgb(249, 243, 230);
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Increased letter spacing for readability */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 3rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: rgb(249, 243, 230);
+    font-weight: 400;
+    font-size: 2.2rem; /* Increased size for readability */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #f9f3e6;
+}
+
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px 20px;
+    perspective: 1500px;
+}
+
+.menu-container {
+    
+    display: flex;
+    background-color: #f9f3e6;
+    border-radius: 15px;
+    width: 95%;
+    max-width: 1400px;
+    height: 85vh;
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.5),
+        0 0 150px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    border: 4px solid rgb(143, 57, 36);
+}
+
+.logo-container {
+    width: 300px;
+    min-width: 300px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgba(249, 243, 230, 0.9);
+    border-radius: 15px 0 0 15px;
+   /* background-image: url('https://img.freepik.com/free-photo/white-concrete-textured-background_53876-139903.jpg?t=st=1728410084~exp=1728413684~hmac=e9b6aa91c7ebae575303e6f01bfb5df487cbfaf880175243a50a4cdaa68f05e0&w=2000');*/
+    background-repeat: repeat;
+    background-size: 100px 100px;
+    overflow-y: auto;
+}
+
+.logo-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.ritz-logo {
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.navigation-arrows {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+.arrow-text {
+    font-size: 1.8rem;
+    color: rgb(143, 57, 36);
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+/* For arrows in the logo container */
+.logo-container .arrow {
+    /* Any specific styles for logo container arrows */
+}
+
+/* For arrows in the menu card */
+.menu-card .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.menu-card .left-arrow {
+    left: 15px;
+}
+
+.menu-card .right-arrow {
+    right: 15px;
+}
+
+.restaurant-info {
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.restaurant-name {
+    font-size: 2.5rem;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.restaurant-tagline {
+    font-style: italic;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.welcome-message {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.restaurant-info h3 {
+    font-size: 1.8rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: rgb(143, 57, 36);
+}
+
+.restaurant-info p {
+    margin: 5px 0;
+    font-size: 1.2rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.social-icon {
+    margin: 0 10px; /* Increased from 5px to 10px for more space between icons */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-img {
+    width: 24px; /* Reduced from 32px to 24px */
+    height: 24px; /* Reduced from 32px to 24px */
+    filter: brightness(0) saturate(100%) invert(24%) sepia(56%) saturate(638%) hue-rotate(333deg) brightness(92%) contrast(90%);
+    transition: transform 0.2s ease;
+}
+
+.social-icon:hover .social-img {
+    transform: scale(1.1);
+}
+
+.menu-card {
+    flex-grow: 1;
+    padding: 30px 50px;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+.menu-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('schildpad.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.5; /* Adjust this value between 0 and 1 for desired transparency */
+    z-index: -1;
+}
+
+
+h2 {
+    font-size: 3rem;
+    color: rgb(143, 57, 36);
+    border-bottom: 2px solid rgb(143, 57, 36);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.menu-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: baseline;
+    margin-bottom: 20px; /* Increased spacing between items */
+    color: rgb(143, 57, 36);
+    transition: transform 0.2s ease;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-name {
+    font-size: 1.8rem;
+    margin-bottom: 5px; /* Space between name and ingredients */
+    font-weight: 600;
+}
+
+.item-ingredients {
+    grid-column: 1 / -1;
+    font-size: 0.9em;
+    font-style: italic;
+    color: rgba(143, 57, 36, 0.8);
+    opacity: 0.8; /* Slightly more transparent */
+    max-width: 80%; /* Prevent long ingredient lists from overlapping with price */
+}
+
+.price {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.8rem;
+    align-self: flex-start; /* Align price with item name */
+}
+
+
+
+
+
+
+
+.menu-item:not(:last-child) {
+    border-bottom: 1px solid rgba(143, 57, 36, 0.3);
+    padding-bottom: 20px;
+}
+
+.menu-item:hover {
+    transform: translateX(5px);
+}
+
+.bottom-content {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.separator-line {
+    width: 80%;
+    border-bottom: 2px solid rgb(143, 57, 36);
+    margin: 5px 0; /* Reduced from 15px */
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px; /* Reduced from 15px */
+}
+
+.navigation-arrows {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px; /* Reduced from 15px */
+}
+

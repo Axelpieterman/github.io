@@ -1,0 +1,62 @@
+.arrow {
+    font-size: 2.5rem;
+    color: rgb(143, 57, 36);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 15px;
+    transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.arrow:hover {
+    transform: scale(1.2); /* Increased from 1.1 to 1.2 for more noticeable effect */
+}
+
+.arrow-text {
+    font-size: 2.5rem;
+    color: rgb(143, 57, 36);
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.navigation-arrows {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* For arrows in the menu card */
+.menu-card .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.menu-card .left-arrow {
+    left: 15px;
+}
+
+.menu-card .right-arrow {
+    right: 15px;
+}
+
+@media (max-width: 768px) {
+    .arrow {
+        font-size: 2rem;
+        padding: 10px;
+    }
+    
+    .arrow-text {
+        font-size: 2rem;
+    }
+    
+    .navigation-arrows {
+        justify-content: space-around;
+    }
+}

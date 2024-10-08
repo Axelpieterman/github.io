@@ -1,0 +1,55 @@
+.menu-item {
+    display: grid;
+    grid-template-columns: 1fr 80px;  /* Adjust 80px as needed */
+    gap: 10px;
+    align-items: baseline;
+    margin-bottom: 20px;
+    color: rgb(143, 57, 36);
+    transition: transform 0.2s ease;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-name {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.item-ingredients {
+    grid-column: 1 / -1;
+    font-size: 0.9em;
+    font-style: italic;
+    color: rgba(143, 57, 36, 0.8);
+    opacity: 0.8;
+    max-width: 80%;
+}
+
+.price {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.8rem;
+    align-self: flex-start;
+    text-align: right;
+    position: relative;
+}
+
+.price::before {
+    content: '€';
+    position: absolute;
+    left: 0;
+}
+
+.menu-item:not(:last-child) {
+    border-bottom: 1px solid rgba(143, 57, 36, 0.3);
+    padding-bottom: 20px;
+}
+
+.menu-item:hover {
+    transform: translateX(5px);
+}
+
+/* Include other styles related to menu items here */

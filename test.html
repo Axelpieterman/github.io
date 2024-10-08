@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ritz Menu</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/menu/menu-container.css">
+    <link rel="stylesheet" href="css/menu/logo-container.css">
+    <link rel="stylesheet" href="css/menu/menu-card.css">
+    <link rel="stylesheet" href="css/menu/menu-items.css">
+    <link rel="stylesheet" href="css/menu/responsive.css">
+    <link rel="stylesheet" href="css/menu/menu-section.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/arrow.css">
+    <script src="menu.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bahiana&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="logo">THE RITZ</div>
+        <nav>
+            <ul>
+                <li><a href="home">Home</a></li>
+                <li><a href="menu">Menu</a></li>
+                <li><a href="about">About</a></li>
+                <li><a href="contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="menu-container">
+            <div class="logo-container">
+                <div class="logo-content">
+                    <img src="logo-ritz.png" alt="The Ritz Logo" class="ritz-logo">
+                    
+                    <div class="restaurant-info">
+                        <h3>Hours</h3>
+                        <p>Mon-Fri: 11am - 10pm</p>
+                        <p>Sat-Sun: 10am - 11pm</p>
+                        <h3>Contact</h3>
+                        <p>Phone: (555) 123-4567</p>
+                        <p>Email: info@theritz.com</p>
+                        <h3>Location</h3>
+                        <p>123 Ritz Avenue</p>
+                        <p>10001 New York City</p>
+                    </div>
+                </div>
+                <div class="bottom-content">
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><img src="facebook-icon.png" alt="Facebook" class="social-img"></a>
+                        <a href="#" class="social-icon"><img src="instagram-icon.png" alt="Instagram" class="social-img"></a>
+                        <a href="#" class="social-icon"><img src="whatsapp-icon.png" alt="WhatsApp" class="social-img"></a>
+                        <a href="#" class="social-icon"><img src="tik-tok-icon.png" alt="TikTok" class="social-img"></a>
+                    </div>
+                    <div class="separator-line"></div>
+                    <div class="navigation-arrows">
+                        <button class="arrow left-arrow" aria-label="Previous page">&#8592;</button>
+                        <span class="arrow-text" id="category-display"></span>
+                        <button class="arrow right-arrow" aria-label="Next page">&#8594;</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card" id="menu-content">
+                <!-- Menu content will be inserted here -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menu = new Menu();
+            const menuContent = document.getElementById('menu-content');
+            const leftArrow = document.querySelector('.left-arrow');
+            const rightArrow = document.querySelector('.right-arrow');
+            const categoryDisplay = document.getElementById('category-display');
+
+            function renderMenu() {
+                menuContent.innerHTML = menu.render();
+                categoryDisplay.textContent = menu.getCurrentCategory();
+                
+                // Convert prices to euros and round appropriately
+                const prices = document.querySelectorAll('.price');
+                prices.forEach(price => {
+                    const dollarPrice = parseFloat(price.textContent.replace('$', ''));
+                    let euroPrice = dollarPrice * 0.84;
+                    
+                    // Round to nearest whole decimal for the first decimal place
+                    euroPrice = Math.round(euroPrice * 10) / 10;
+                    
+                    // Format to always show two decimal places with second decimal as 0
+                    const formattedPrice = euroPrice.toFixed(1) + '0';
+                    
+                    price.textContent = '€' + formattedPrice;
+                });
+            }
+
+            leftArrow.addEventListener('click', () => {
+                if (menu.prevPage()) {
+                    renderMenu();
+                }
+            });
+
+            rightArrow.addEventListener('click', () => {
+                if (menu.nextPage()) {
+                    renderMenu();
+                }
+            });
+
+            renderMenu();
+        });
+    </script>
+</body>
+</html>

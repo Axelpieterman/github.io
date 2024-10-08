@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - The Ritz Restaurant</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    </style>
+</head>
+
+    <header>
+        <div class="logo">THE RITZ</div>
+        <nav>
+            <ul>
+                <li><a href="home">Home</a></li>
+                <li><a href="menu">Menu</a></li>
+                <li><a href="about">About</a></li>
+                <li><a href="contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="book-container"></div>
+
+    <script src="InteractiveMenuBook.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const content = [
+                { title: "", items: [] }, // Front Cover
+                { title: "Appetizers", items: [
+                    { name: "Bruschetta", price: "$8" },
+                    { name: "Calamari Fritti", price: "$12" },
+                    { name: "Caprese Salad", price: "$10" },
+                    { name: "Escargots à la Bourguignonne", price: "$15" }
+                ]},
+                { title: "Soups & Salads", items: [
+                    { name: "French Onion Soup", price: "$9" },
+                    { name: "Lobster Bisque", price: "$14" },
+                    { name: "Caesar Salad", price: "$11" },
+                    { name: "Niçoise Salad", price: "$13" }
+                ]},
+                { title: "Main Courses", items: [
+                    { name: "Filet Mignon", price: "$35" },
+                    { name: "Coq au Vin", price: "$28" },
+                    { name: "Lobster Thermidor", price: "$42" },
+                    { name: "Beef Wellington", price: "$38" }
+                ]},
+                { title: "Seafood Specialties", items: [
+                    { name: "Grilled Salmon", price: "$26" },
+                    { name: "Seared Scallops", price: "$30" },
+                    { name: "Bouillabaisse", price: "$34" },
+                    { name: "Tuna Tartare", price: "$24" }
+                ]},
+                { title: "Vegetarian Delights", items: [
+                    { name: "Ratatouille", price: "$22" },
+                    { name: "Mushroom Risotto", price: "$20" },
+                    { name: "Eggplant Parmesan", price: "$18" },
+                    { name: "Vegetable Tian", price: "$19" }
+                ]},
+                { title: "Desserts", items: [
+                    { name: "Crème Brûlée", price: "$10" },
+                    { name: "Chocolate Soufflé", price: "$12" },
+                    { name: "Tarte Tatin", price: "$9" },
+                    { name: "Profiteroles", price: "$11" }
+                ]},
+                { title: "", items: [] } // Back Cover
+            ];
+
+            const menuBook = new InteractiveMenuBook('book-container', content);
+        });
+    </script>
+    
+</body>
+</html>
