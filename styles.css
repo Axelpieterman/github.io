@@ -1,3 +1,5 @@
+
+
 body, html {
     margin: 0;
     padding: 0;
@@ -24,7 +26,6 @@ body::before {
     background-color: rgba(0, 0, 0, 0.3);
     z-index: -1;
 }
-
 header {
     position: fixed;
     top: 0;
@@ -334,4 +335,5 @@ h2 {
     width: 100%;
     margin-top: 10px; /* Reduced from 15px */
 }
+
 

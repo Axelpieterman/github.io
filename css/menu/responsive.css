@@ -1,7 +1,62 @@
 @media (max-width: 1200px) {
     /* Styles for screens up to 1200px wide */
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
     /* Styles for screens up to 768px wide */
+    .menu-container {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .logo-container {
+        width: 100%;
+        min-width: 100%;
+        border-radius: 15px 15px 0 0;
+        padding: 20px;
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .menu-card {
+        padding: 30px 40px;
+    }
+    
+    .ritz-logo {
+        max-width: 30%;
+        margin-bottom: 0;
+    }
+    
+    .restaurant-info {
+        text-align: left;
+        margin-top: 0;
+    }
+    
+    .social-links {
+        margin-top: 0;
+    }
+    
+    .navigation-arrows {
+        justify-content: space-around;
+        margin-top: 10px;
+    }
+    
+    .arrow {
+        font-size: 2rem;
+        padding: 10px;
+    }
+    
+    .arrow-text {
+        font-size: 2rem;
+    }
+
+    .social-img {
+        width: 20px;
+        height: 20px;
+    }
 }
