@@ -123,31 +123,27 @@ class Menu {
 
     render() {
         const currentCategory = this.sections[this.currentPage];
-        const columnsPerRow = 3; // Always display 3 columns
-
-        let html = '<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 lg:gap-10">';
-
-        for (let i = 0; i < columnsPerRow; i++) {
-            html += '<div class="flex flex-col">';
-            if (i < currentCategory.sections.length) {
-                const section = currentCategory.sections[i];
-                html += `
+        
+        let html = '<div class="menu-sections">';
+        
+        currentCategory.sections.forEach((section, index) => {
+            html += `
+                <div class="mb-8">
                     <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-ritz-brown border-b-2 border-ritz-brown pb-3 mb-6 font-bold">${section.title}</h2>
-                    <div class="flex-grow">
+                    <div>
                         ${section.items.map(item => `
                             <div class="flex justify-between items-baseline mb-6 pb-6 border-b border-ritz-brown border-opacity-30 last:border-b-0">
-                                <div class="flex flex-col">
+                                <div class="flex-grow pr-2">
                                     <span class="text-xl sm:text-2xl md:text-3xl font-semibold text-ritz-brown">${item.name}</span>
-                                    <span class="text-base sm:text-lg md:text-xl italic text-ritz-brown text-opacity-80">${item.ingredients || ''}</span>
+                                    <span class="block text-base sm:text-lg md:text-xl italic text-ritz-brown text-opacity-80">${item.ingredients || ''}</span>
                                 </div>
-                                <span class="price text-xl sm:text-2xl md:text-3xl font-bold italic text-ritz-brown">${item.price}</span>
+                                <span class="price text-xl sm:text-2xl md:text-3xl font-bold italic text-ritz-brown whitespace-nowrap">${item.price}</span>
                             </div>
                         `).join('')}
                     </div>
-                `;
-            }
-            html += '</div>';
-        }
+                </div>
+            `;
+        });
 
         html += '</div>';
         return html;
