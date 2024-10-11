@@ -1,0 +1,37 @@
+</head>
+<body class="font-bahiana h-screen flex flex-col bg-cover bg-center bg-fixed" style="background-image: url('restaurant-photo2-mobile.webp');">
+    <header class="bg-ritz-brown p-2 sm:p-4 flex justify-between items-center z-50 bg-pattern">
+        <a href="index.html" class="font-bahiana text-2xl sm:text-4xl font-normal text-ritz-cream uppercase tracking-wider hover:text-white transition-colors">THE RITZ</a>
+        <nav class="hidden sm:block">
+            <ul class="flex">
+                <li class="ml-6 sm:ml-12"><a href="index.html" class="font-bahiana text-xl sm:text-2xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">Home</a></li>
+                <li class="ml-6 sm:ml-12"><a href="menu.html" class="font-bahiana text-xl sm:text-2xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">Menu</a></li>
+                <li class="ml-6 sm:ml-12"><a href="about.html" class="font-bahiana text-xl sm:text-2xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">About</a></li>
+                <li class="ml-6 sm:ml-12"><a href="contact.html" class="font-bahiana text-xl sm:text-2xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">Contact</a></li>
+            </ul>
+        </nav>
+        <button id="mobile-menu-button" class="sm:hidden text-ritz-cream text-2xl">☰</button>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden sm:hidden fixed inset-0 bg-ritz-brown/95 z-50 flex flex-col justify-center items-center bg-pattern">
+        <button id="close-menu-button" class="absolute top-4 right-4 text-ritz-cream text-3xl">&times;</button>
+        <nav>
+            <ul class="text-center">
+                <li class="mb-8 opacity-0 transform translate-y-4 transition-all duration-300 ease-out"><a href="index.html" class="font-bahiana text-4xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">Home</a></li>
+                <li class="mb-8 opacity-0 transform translate-y-4 transition-all duration-300 ease-out delay-100"><a href="menu.html" class="font-bahiana text-4xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">Menu</a></li>
+                <li class="mb-8 opacity-0 transform translate-y-4 transition-all duration-300 ease-out delay-200"><a href="about.html" class="font-bahiana text-4xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">About</a></li>
+                <li class="mb-8 opacity-0 transform translate-y-4 transition-all duration-300 ease-out delay-300"><a href="contact.html" class="font-bahiana text-4xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+
+<style>
+    .bg-pattern {
+        background-image: url('subtle-pattern.png');
+        background-repeat: repeat;
+        background-color: rgba(143, 57, 36, 0.9); /* Ritz brown with opacity */
+    }
+</style>
