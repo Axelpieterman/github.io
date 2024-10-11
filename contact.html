@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact The Ritz - Fusion Cuisine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bahiana&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+    <script>
+        tailwind.config = tailwindConfig
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        html {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .bg-pattern {
+            background-image: url('subtle-pattern.png');
+            background-repeat: repeat;
+            background-color: rgba(100, 67, 33, 0.9);
+        }
+        body {
+            background-image: url('subtle-pattern.png');
+            background-repeat: repeat;
+            background-color: #644321;
+        }
+        .bg-pattern-cream {
+            background-image: url('subtle-pattern.png');
+            background-repeat: repeat;
+            background-color: rgba(249, 243, 230, 0.9);
+        }
+        .font-bahiana {
+            font-family: 'Bahiana', cursive;
+        }
+    </style>
+</head>
+<body class="font-bahiana m-0 p-0 leading-relaxed h-full overflow-auto">
+    <header class="bg-ritz-brown p-2 sm:p-4 flex justify-between items-center z-50 bg-pattern">
+        <a href="index.html" class="font-bahiana text-2xl sm:text-4xl font-normal text-ritz-cream uppercase tracking-wider hover:text-white transition-colors">THE RITZ</a>
+        <nav class="hidden sm:block">
+            <ul class="flex">
+                <li class="ml-6 sm:ml-12"><a href="index.html" class="font-bahiana text-xl sm:text-2xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">Home</a></li>
+                <li class="ml-6 sm:ml-12"><a href="menu.html" class="font-bahiana text-xl sm:text-2xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">Menu</a></li>
+                <li class="ml-6 sm:ml-12"><a href="about.html" class="font-bahiana text-xl sm:text-2xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">About</a></li>
+                <li class="ml-6 sm:ml-12"><a href="contact.html" class="font-bahiana text-xl sm:text-2xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">Contact</a></li>
+            </ul>
+        </nav>
+        <button id="mobile-menu-button" class="sm:hidden text-ritz-cream text-2xl">☰</button>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden sm:hidden fixed inset-0 bg-ritz-brown/95 z-50 flex flex-col justify-center items-center bg-pattern">
+        <button id="close-menu-button" class="absolute top-4 right-4 text-ritz-cream text-3xl">&times;</button>
+        <nav>
+            <ul class="text-center">
+                <li class="mb-8 opacity-0 transform translate-y-4 transition-all duration-300 ease-out"><a href="index.html" class="font-bahiana text-4xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">Home</a></li>
+                <li class="mb-8 opacity-0 transform translate-y-4 transition-all duration-300 ease-out delay-100"><a href="menu.html" class="font-bahiana text-4xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">Menu</a></li>
+                <li class="mb-8 opacity-0 transform translate-y-4 transition-all duration-300 ease-out delay-200"><a href="about.html" class="font-bahiana text-4xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">About</a></li>
+                <li class="mb-8 opacity-0 transform translate-y-4 transition-all duration-300 ease-out delay-300"><a href="contact.html" class="font-bahiana text-4xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <main class="relative">
+        <!-- Contact Hero Section -->
+        <section class="h-screen flex items-center justify-center relative bg-[url('restaurant-photo2-mobile.webp')] sm:bg-[url('restaurant-photo2.webp')] bg-cover bg-center">
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+            <div class="relative z-10 bg-ritz-brown bg-opacity-80 p-4 sm:p-8 rounded-lg text-center bg-pattern">
+                <h1 class="text-6xl sm:text-8xl md:text-9xl font-bold mb-4 sm:mb-6 text-ritz-cream animate-on-scroll">Contact Us</h1>
+                <p class="text-2xl sm:text-3xl mb-6 sm:mb-10 max-w-3xl mx-auto text-ritz-cream animate-on-scroll">Get in touch with The Ritz for reservations, inquiries, or to share your dining experience.</p>
+            </div>
+        </section>
+
+        <!-- Contact Information Section -->
+        <section class="py-12 sm:py-20 bg-pattern-cream">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="animate-on-scroll">
+                        <h2 class="text-5xl sm:text-6xl text-ritz-brown mb-6 font-bold">Reach Out to Us</h2>
+                        <p class="text-2xl mb-4 text-ritz-brown"><strong>Address:</strong> Carrer del Carme, 43, 17310 Lloret de Mar, Girona, Spain</p>
+                        <p class="text-2xl mb-4 text-ritz-brown"><strong>Phone:</strong> +34 972 36 48 22</p>
+                        <p class="text-2xl mb-4 text-ritz-brown"><strong>Email:</strong> info@theritzlloret.com</p>
+                        <h3 class="text-4xl text-ritz-brown mt-8 mb-4 font-bold">Opening Hours</h3>
+                        <p class="text-2xl mb-2 text-ritz-brown">Monday - Friday: 11:00 - 23:00</p>
+                        <p class="text-2xl mb-2 text-ritz-brown">Saturday: 10:00 - 00:00</p>
+                        <p class="text-2xl text-ritz-brown">Sunday: 10:00 - 22:00</p>
+                    </div>
+                    <div class="animate-on-scroll">
+                        <h2 class="text-5xl sm:text-6xl text-ritz-brown mb-6 font-bold">Send Us a Message</h2>
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-ritz-brown mb-2 text-2xl">Name</label>
+                                <input type="text" id="name" name="name" class="w-full p-2 border border-ritz-brown rounded text-xl" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-ritz-brown mb-2 text-2xl">Email</label>
+                                <input type="email" id="email" name="email" class="w-full p-2 border border-ritz-brown rounded text-xl" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-ritz-brown mb-2 text-2xl">Message</label>
+                                <textarea id="message" name="message" rows="4" class="w-full p-2 border border-ritz-brown rounded text-xl" required></textarea>
+                            </div>
+                            <button type="submit" class="bg-ritz-brown text-ritz-cream py-2 px-4 rounded hover:bg-opacity-90 transition-colors text-2xl">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="py-12 sm:py-20 bg-ritz-brown bg-pattern">
+            <div class="container mx-auto px-4">
+                <h2 class="text-5xl sm:text-6xl text-ritz-cream mb-8 text-center animate-on-scroll">Find Us</h2>
+                <div class="h-96 rounded-lg overflow-hidden animate-on-scroll">
+                    <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2987.7463797073136!2d2.8452892!3d41.7001389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4587b7f1f1f1f%3A0x1f1f1f1f1f1f1f1f!2sCarrer%20del%20Carme%2C%2043%2C%2017310%20Lloret%20de%20Mar%2C%20Girona%2C%20Spain!5e0!3m2!1sen!2sus!4v1621234567890!5m2!1sen!2sus&map_style=night" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setupScrollAnimations();
+            loadFooter();
+        });
+
+        function loadFooter() {
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                    setupScrollAnimations(); // Re-run to include footer elements
+                });
+        }
+
+        function setupScrollAnimations() {
+            const observer = new IntersectionObserver(handleIntersection, {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        function handleIntersection(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -3,72 +3,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - The Ritz Restaurant</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>About The Ritz - Fusion Cuisine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bahiana&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+    <script>
+        tailwind.config = tailwindConfig
+    </script>
     <style>
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        html {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        @media (max-width: 640px) {
+            .parallax {
+                background-attachment: scroll;
+            }
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .section-divider {
+            height: 100px;
+            background: linear-gradient(to bottom right, transparent 49%, #E5D3B3 50%);
+        }
+        .bg-pattern {
+            background-image: url('subtle-pattern.png');
+            background-repeat: repeat;
+            background-color: rgba(100, 67, 33, 0.9);
+        }
+        body {
+            background-image: url('subtle-pattern.png');
+            background-repeat: repeat;
+            background-color: #644321;
+        }
+        .bg-pattern-cream {
+            background-image: url('subtle-pattern.png');
+            background-repeat: repeat;
+            background-color: rgba(249, 243, 230, 0.9);
+        }
+        .font-bahiana {
+            font-family: 'Bahiana', cursive;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .footer-fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
     </style>
 </head>
-
-    <header>
-        <div class="logo">THE RITZ</div>
-        <nav>
-            <ul>
-                <li><a href="home">Home</a></li>
-                <li><a href="menu">Menu</a></li>
-                <li><a href="about">About</a></li>
-                <li><a href="contact">Contact</a></li>
+<body class="font-montserrat m-0 p-0 leading-relaxed h-full overflow-auto">
+    <header class="bg-ritz-brown p-2 sm:p-4 flex justify-between items-center z-50 bg-pattern">
+        <a href="index.html" class="font-bahiana text-2xl sm:text-4xl font-normal text-ritz-cream uppercase tracking-wider hover:text-white transition-colors">THE RITZ</a>
+        <nav class="hidden sm:block">
+            <ul class="flex">
+                <li class="ml-6 sm:ml-12"><a href="index.html" class="font-bahiana text-xl sm:text-2xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">Home</a></li>
+                <li class="ml-6 sm:ml-12"><a href="menu.html" class="font-bahiana text-xl sm:text-2xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">Menu</a></li>
+                <li class="ml-6 sm:ml-12"><a href="about.html" class="font-bahiana text-xl sm:text-2xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">About</a></li>
+                <li class="ml-6 sm:ml-12"><a href="contact.html" class="font-bahiana text-xl sm:text-2xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">Contact</a></li>
             </ul>
         </nav>
+        <button id="mobile-menu-button" class="sm:hidden text-ritz-cream text-2xl">☰</button>
     </header>
-    <div id="book-container"></div>
 
-    <script src="InteractiveMenuBook.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const content = [
-                { title: "", items: [] }, // Front Cover
-                { title: "Appetizers", items: [
-                    { name: "Bruschetta", price: "$8" },
-                    { name: "Calamari Fritti", price: "$12" },
-                    { name: "Caprese Salad", price: "$10" },
-                    { name: "Escargots à la Bourguignonne", price: "$15" }
-                ]},
-                { title: "Soups & Salads", items: [
-                    { name: "French Onion Soup", price: "$9" },
-                    { name: "Lobster Bisque", price: "$14" },
-                    { name: "Caesar Salad", price: "$11" },
-                    { name: "Niçoise Salad", price: "$13" }
-                ]},
-                { title: "Main Courses", items: [
-                    { name: "Filet Mignon", price: "$35" },
-                    { name: "Coq au Vin", price: "$28" },
-                    { name: "Lobster Thermidor", price: "$42" },
-                    { name: "Beef Wellington", price: "$38" }
-                ]},
-                { title: "Seafood Specialties", items: [
-                    { name: "Grilled Salmon", price: "$26" },
-                    { name: "Seared Scallops", price: "$30" },
-                    { name: "Bouillabaisse", price: "$34" },
-                    { name: "Tuna Tartare", price: "$24" }
-                ]},
-                { title: "Vegetarian Delights", items: [
-                    { name: "Ratatouille", price: "$22" },
-                    { name: "Mushroom Risotto", price: "$20" },
-                    { name: "Eggplant Parmesan", price: "$18" },
-                    { name: "Vegetable Tian", price: "$19" }
-                ]},
-                { title: "Desserts", items: [
-                    { name: "Crème Brûlée", price: "$10" },
-                    { name: "Chocolate Soufflé", price: "$12" },
-                    { name: "Tarte Tatin", price: "$9" },
-                    { name: "Profiteroles", price: "$11" }
-                ]},
-                { title: "", items: [] } // Back Cover
-            ];
-
-            const menuBook = new InteractiveMenuBook('book-container', content);
-        });
-    </script>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden sm:hidden fixed inset-0 bg-ritz-brown/95 z-50 flex flex-col justify-center items-center bg-pattern">
+        <button id="close-menu-button" class="absolute top-4 right-4 text-ritz-cream text-3xl">&times;</button>
+        <nav>
+            <ul class="text-center">
+                <li class="mb-8 opacity-0 transform translate-y-4 transition-all duration-300 ease-out"><a href="index.html" class="font-bahiana text-4xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">Home</a></li>
+                <li class="mb-8 opacity-0 transform translate-y-4 transition-all duration-300 ease-out delay-100"><a href="menu.html" class="font-bahiana text-4xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">Menu</a></li>
+                <li class="mb-8 opacity-0 transform translate-y-4 transition-all duration-300 ease-out delay-200"><a href="about.html" class="font-bahiana text-4xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">About</a></li>
+                <li class="mb-8 opacity-0 transform translate-y-4 transition-all duration-300 ease-out delay-300"><a href="contact.html" class="font-bahiana text-4xl text-ritz-cream uppercase tracking-wide hover:text-white transition-colors">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
     
+    <main class="relative font-bahiana">
+        <!-- About Hero Section -->
+        <section class="h-screen flex items-center justify-center relative parallax bg-[url('restaurant-photo2-mobile.webp')] sm:bg-[url('restaurant-photo2.webp')]">
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+            <div class="relative z-10 bg-ritz-brown bg-opacity-80 p-4 sm:p-8 rounded-lg text-center bg-pattern">
+                <h1 class="font-bahiana text-5xl sm:text-7xl md:text-8xl font-bold mb-4 sm:mb-6 text-ritz-cream animate-on-scroll">Our Story</h1>
+                <p class="text-lg sm:text-2xl mb-6 sm:mb-10 max-w-3xl mx-auto text-ritz-cream animate-on-scroll">Discover the passion and creativity behind The Ritz, where Dutch culinary traditions meet Mediterranean flair.</p>
+            </div>
+        </section>
+
+        <!-- History Section -->
+        <section class="py-12 sm:py-20 bg-pattern-cream">
+            <div class="container mx-auto px-4">
+                <h2 class="font-bahiana text-4xl sm:text-5xl md:text-6xl text-ritz-brown mb-8 sm:mb-10 font-bold text-center animate-on-scroll">Our Journey</h2>
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="w-full md:w-1/2 mb-8 md:mb-0 md:pr-10 animate-on-scroll">
+                        <div class="relative overflow-hidden rounded-lg shadow-lg">
+                            <picture>
+                                <source media="(max-width: 640px)" srcset="restaurant-photo2-mobile.webp">
+                                <source media="(min-width: 641px)" srcset="restaurant-photo2.webp">
+                                <img src="restaurant-photo2.webp" alt="The Ritz Exterior" class="w-full transition-transform duration-500 hover:scale-110" width="1920" height="1080" loading="lazy">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <div class="space-y-6">
+                            <div class="flex items-center animate-on-scroll">
+                                <div class="flex-shrink-0 w-12 h-12 bg-ritz-brown rounded-full flex items-center justify-center text-ritz-cream font-bold text-xl">2010</div>
+                                <p class="ml-4 text-base sm:text-lg text-ritz-brown">Founded as a small family-owned restaurant with a big dream.</p>
+                            </div>
+                            <div class="flex items-center animate-on-scroll">
+                                <div class="flex-shrink-0 w-12 h-12 bg-ritz-brown rounded-full flex items-center justify-center text-ritz-cream font-bold text-xl">2015</div>
+                                <p class="ml-4 text-base sm:text-lg text-ritz-brown">Expanded our menu to include innovative fusion dishes.</p>
+                            </div>
+                            <div class="flex items-center animate-on-scroll">
+                                <div class="flex-shrink-0 w-12 h-12 bg-ritz-brown rounded-full flex items-center justify-center text-ritz-cream font-bold text-xl">2020</div>
+                                <p class="ml-4 text-base sm:text-lg text-ritz-brown">Celebrated 10 years of culinary excellence and community service.</p>
+                            </div>
+                            <div class="flex items-center animate-on-scroll">
+                                <div class="flex-shrink-0 w-12 h-12 bg-ritz-brown rounded-full flex items-center justify-center text-ritz-cream font-bold text-xl">Now</div>
+                                <p class="ml-4 text-base sm:text-lg text-ritz-brown">Continuing to push culinary boundaries while staying true to our roots.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Team Section -->
+        <section class="py-12 sm:py-20 bg-ritz-brown bg-pattern">
+            <div class="container mx-auto px-4">
+                <h2 class="font-bahiana text-4xl sm:text-5xl md:text-6xl text-ritz-cream mb-8 sm:mb-10 font-bold text-center animate-on-scroll">Meet Our Culinary Artists</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10">
+                    <!-- Chef -->
+                    <div class="text-center group animate-on-scroll">
+                        <div class="relative overflow-hidden rounded-full w-32 h-32 sm:w-48 sm:h-48 mx-auto mb-4 sm:mb-6">
+                            <img src="chef.webp" alt="Head Chef" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+                        </div>
+                        <h3 class="font-bahiana text-2xl sm:text-3xl mb-2 text-ritz-cream">Chef Maria van der Meer</h3>
+                        <p class="text-base sm:text-lg mb-2 sm:mb-4 text-ritz-cream">Head Chef & Co-founder</p>
+                        <p class="text-sm opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-ritz-cream">With 20 years of culinary experience, Maria brings Dutch traditions to life with a Mediterranean twist.</p>
+                    </div>
+                    <!-- Manager -->
+                    <div class="text-center group animate-on-scroll">
+                        <div class="relative overflow-hidden rounded-full w-32 h-32 sm:w-48 sm:h-48 mx-auto mb-4 sm:mb-6">
+                            <img src="chef.webp" alt="Restaurant Manager" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+                        </div>
+                        <h3 class="font-bahiana text-2xl sm:text-3xl mb-2 text-ritz-cream">Jan de Vries</h3>
+                        <p class="text-base sm:text-lg mb-2 sm:mb-4 text-ritz-cream">Restaurant Manager</p>
+                        <p class="text-sm opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-ritz-cream">Jan ensures every guest feels at home with his warm hospitality and attention to detail.</p>
+                    </div>
+                    <!-- Sommelier -->
+                    <div class="text-center group sm:col-span-2 md:col-span-1 animate-on-scroll">
+                        <div class="relative overflow-hidden rounded-full w-32 h-32 sm:w-48 sm:h-48 mx-auto mb-4 sm:mb-6">
+                            <img src="chef.webp" alt="Sommelier" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+                        </div>
+                        <h3 class="font-bahiana text-2xl sm:text-3xl mb-2 text-ritz-cream">Sofia Papadopoulos</h3>
+                        <p class="text-base sm:text-lg mb-2 sm:mb-4 text-ritz-cream">Head Sommelier</p>
+                        <p class="text-sm opacity-100 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-ritz-cream">Sofia's expertise in both Dutch and Mediterranean wines creates perfect pairings for our fusion cuisine.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Mission Section -->
+        <section class="py-12 sm:py-20 relative bg-pattern-cream">
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <div class="bg-ritz-cream bg-opacity-0 p-4 sm:p-8 rounded-lg ">
+                    <h2 class="font-bahiana text-4xl sm:text-5xl md:text-6xl text-ritz-brown mb-6 sm:mb-10 font-bold animate-on-scroll">Our Mission</h2>
+                    <p class="text-lg sm:text-xl max-w-3xl mx-auto mb-6 sm:mb-10 text-ritz-brown animate-on-scroll">At The Ritz, our mission is to create unforgettable culinary experiences that bridge cultures and bring people together. We strive to:</p>
+                    <ul class="text-base sm:text-lg list-none max-w-2xl mx-auto text-left space-y-4 text-ritz-brown">
+                        <li class="flex items-center animate-on-scroll"><span class="text-2xl sm:text-3xl mr-4">🍽️</span> Innovate with flavors, combining Dutch and Mediterranean cuisines in exciting new ways</li>
+                        <li class="flex items-center animate-on-scroll"><span class="text-2xl sm:text-3xl mr-4">🌿</span> Source the freshest, highest-quality ingredients from local suppliers</li>
+                        <li class="flex items-center animate-on-scroll"><span class="text-2xl sm:text-3xl mr-4">🤗</span> Provide warm, attentive service that makes every guest feel at home</li>
+                        <li class="flex items-center animate-on-scroll"><span class="text-2xl sm:text-3xl mr-4">🎉</span> Create a vibrant atmosphere where food, drink, and good company come together</li>
+                        <li class="flex items-center animate-on-scroll"><span class="text-2xl sm:text-3xl mr-4">🌍</span> Contribute positively to our community and the environment</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Philosophy Section -->
+        <section class="py-12 sm:py-20 bg-ritz-brown bg-pattern text-ritz-cream">
+            <div class="container mx-auto px-4">
+                <h2 class="text-5xl sm:text-6xl mb-8 text-center animate-on-scroll">Our Philosophy</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="animate-on-scroll">
+                        <p class="text-2xl mb-6">At The Ritz, we believe that dining is more than just eating – it's an experience that engages all the senses. Our philosophy is rooted in three core principles:</p>
+                        <ul class="text-2xl space-y-4">
+                            <li class="flex items-center"><span class="text-3xl mr-4">🌟</span> Exceptional quality in every dish</li>
+                            <li class="flex items-center"><span class="text-3xl mr-4">🎨</span> Creative fusion of Dutch and Mediterranean cuisines</li>
+                            <li class="flex items-center"><span class="text-3xl mr-4">🤝</span> Warm, attentive service that makes you feel at home</li>
+                        </ul>
+                    </div>
+                    <div class="animate-on-scroll">
+                        <img src="philosophy-image.webp" alt="Chef preparing a dish" class="rounded-lg shadow-lg w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Commitment Section -->
+        <section class="py-12 sm:py-20 bg-pattern-cream">
+            <div class="container mx-auto px-4">
+                <h2 class="text-5xl sm:text-6xl mb-8 text-center text-ritz-brown animate-on-scroll">Our Commitment</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="animate-on-scroll">
+                        <img src="commitment-image.webp" alt="Fresh ingredients" class="rounded-lg shadow-lg w-full h-auto">
+                    </div>
+                    <div class="animate-on-scroll">
+                        <p class="text-2xl mb-6 text-ritz-brown">We are dedicated to providing an unforgettable dining experience while also being responsible members of our community. Our commitments include:</p>
+                        <ul class="text-2xl space-y-4 text-ritz-brown">
+                            <li class="flex items-center"><span class="text-3xl mr-4">🌿</span> Sourcing local, seasonal ingredients</li>
+                            <li class="flex items-center"><span class="text-3xl mr-4">♻️</span> Implementing sustainable practices in our operations</li>
+                            <li class="flex items-center"><span class="text-3xl mr-4">🍽️</span> Offering a diverse menu to cater to various dietary needs</li>
+                            <li class="flex items-center"><span class="text-3xl mr-4">🌍</span> Contribute positively to our community and the environment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setupScrollAnimations();
+            loadFooter();
+            setupMobileMenu();
+        });
+
+        function loadFooter() {
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                    setupScrollAnimations(); // Re-run to include footer elements
+                });
+        }
+
+        function setupScrollAnimations() {
+            const observer = new IntersectionObserver(handleIntersection, {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        function handleIntersection(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }
+
+        function setupMobileMenu() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMenuButton = document.getElementById('close-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuItems = mobileMenu.querySelectorAll('li');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => {
+                    mobileMenuItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.remove('opacity-0', 'transform', 'translate-y-4');
+                        }, index * 100);
+                    });
+                }, 100);
+            });
+
+            closeMenuButton.addEventListener('click', () => {
+                mobileMenuItems.forEach((item) => {
+                    item.classList.add('opacity-0', 'transform', 'translate-y-4');
+                });
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+            });
+        }
+    </script>
 </body>
 </html>
